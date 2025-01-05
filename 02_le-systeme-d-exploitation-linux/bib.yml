@@ -1,0 +1,33 @@
+introduction-systeme-exploitation-linux:
+    type: Web
+    title: Introduction au système d’exploitation Linux
+    author:
+      - Antoine Le Morvan
+      - Xavier Sauvignon
+    editor: Patrick Finet 
+    url: https://www.formatux.fr/formatux-fondamentaux/module-010-presentation/index.html
+    parent:
+        type: Web
+        title: formatux
+        url: https://www.formatux.fr/
+linux-principes-de-base:
+    type: Book
+    title: "Linux : Principes de base de l'utilisation du système"
+    author: Nicolas PONS
+    publisher: ENI
+    edition: 8
+    page-total: 344
+    date: 2022-11
+    serial-number:
+      isbn:  978-2-409-03776-4
+introduction-systemes-exploitations:
+    type: Book
+    title: "Introduction aux systèmes d'exploitation"
+    author:
+    - Boucheneb Hanifa
+    - Torres-Moreno Juan-Manuel
+    publisher: Ellipses
+    page-total: 216
+    date: 2019-03-12
+    serial-number:
+      isbn:  978-2-340-02965-1

@@ -1,0 +1,88 @@
+histoire-des-langages-de-programmation:
+    type: Article
+    title: "Histoire des langages de programmation"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Histoire_des_langages_de_programmation
+histoire-de-l-informatique:
+    type: Article
+    title: "Histoire de l'informatique"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Histoire_de_l%27informatique
+histoire-des-ordinateur:
+    type: Article
+    title: "Histoire des ordinateurs"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Histoire_des_ordinateurs
+intel-4004:
+    type: Article
+    title: "Intel 4004"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Intel_4004
+UNIVAC-I:
+    type: Article
+    title: "UNIVAC I"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/UNIVAC_I
+transistor:
+    type: Article
+    title: "Transistor"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Transistor
+ENIAC:
+    type: Article
+    title: "ENIAC"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/ENIAC
+ordinateur:
+    type: Article
+    title: "Ordinateur"
+    language: fr-FR
+    url: https://fr.wikipedia.org/wiki/Ordinateur
+transistor-gates:
+    type: Article
+    author: Carl R. (Rod) Nave
+    title: "Transistor Gates"
+    language: en-US
+    url: http://hyperphysics.phy-astr.gsu.edu/hbase/Electronic/trangate.html#c1
+babbage-difference-engine-demo:
+    type: Video
+    title: "The Babbage Difference Engine #2 at CHM"
+    language: en-US
+    publisher: Computer History Museum
+    url: https://www.youtube.com/watch?v=be1EM3gQkAY&ab_channel=ComputerHistoryMuseum
+babbage-difference-engine:
+    type: Article
+    title: Charles Babbage’s Difference Engines and the Science Museum
+    date: 2023-07-18
+    language: en-UK
+    url: https://www.sciencemuseum.org.uk/objects-and-stories/charles-babbages-difference-engines-and-science-museum
+    parent:
+        type: Web
+        title: London Science Museum
+        location: "Exhibition Road, South Kensington, London, England"
+        url: https://www.sciencemuseum.org.uk/
+babbage-analytical-engine:
+    type: Article
+    title: "The Analytical Engine: 28 Plans and Counting"
+    language: en-US
+    author: Tim Robinson
+    date: 2015-12-08
+    url: https://computerhistory.org/blog/the-analytical-engine-28-plans-and-counting/
+ordinateur-a-vapeur:
+    type: Video
+    title: "L'Ordinateur à Vapeur !"
+    language: fr-FR
+    publisher: Scientory
+    url: https://www.youtube.com/watch?v=_SyOigrbeQs&ab_channel=Scientory
+du-transistor-au-microprocesseur:
+    type: Article
+    title: "Du transistor au micro-processeur"
+    language: fr-FR
+    author: "?"
+    url: https://pixees.fr/informatiquelycee/prem/c8c.html
+des-transistors-aux-portes-logiques:
+    type: Article
+    title: "Des transistors aux portes logiques - Conception de circuits"
+    language: fr-FR
+    author: Pierre Audibert 
+    url: http://www.pierreaudibert.fr/ens/6-PORTESLOGIQUES.pdf
