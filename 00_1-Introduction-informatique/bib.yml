@@ -86,3 +86,10 @@ des-transistors-aux-portes-logiques:
     language: fr-FR
     author: Pierre Audibert 
     url: http://www.pierreaudibert.fr/ens/6-PORTESLOGIQUES.pdf
+the-quintessential-PIC-microcontroller:
+    type: Article
+    title: "The Quintessential PIC Microcontroller"
+    author: Sid Katzen
+    publisher: Springer-Verlag
+    language: en-US
+    url: https://dsp-book.narod.ru/QPIC.pdf
