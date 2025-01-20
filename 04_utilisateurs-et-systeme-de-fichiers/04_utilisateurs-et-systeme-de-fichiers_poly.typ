@@ -356,9 +356,36 @@ La base du système de fichiers est appelée la « racine », en anglais « r
 ]
 
 
+Le système de fichiers de Linux forme ce que l'on appelle une "arborescence" : elle peut être représentée sous la forme d'un arbre. \
+Cette arbre n'a qu'un seul et unique tronc (que l'on appelle étrangement "racine" ou, en anglais `root`). De ce tronc partent des branches (les répertoires). Chaque branche peut supporter :
+- d'autres branches
+- des feuilles (les fichiers)
 
+#align(
+  center,
+  image("./illustrations/arborescence1.png", width: 11cm)
+)
 
+Vous en conviendrez, cette représentation n'est pas très pratique.\ 
+On en préfère donc une qui ressemble un peu moins à un arbre, mais beaucoup plus lisible :
+#align(
+  center,
+  image("./illustrations/arborescence2.png", width: 8cm)
+)
 
+Textuellement, cela donne :
+```
+/
+├── home
+│   ├── alice
+│   │   ├── documents
+│   │   │   └── document1
+│   │   └── fichier1
+│   └── bob
+│       └── fichier_a
+└── var
+    └── lib
+```
 
 
 #pagebreak()
