@@ -342,11 +342,13 @@ EXAMPLES
 
 == Théorie
 
+=== Système de fichiers
+
 Dans Linux, on range les fichiers dans des répertoires, que l’on peut eux même mettre dans des répertoires etc…
 
-Chaque fichier, et chaque répertoire ont un chemin d’accès. \
+Chaque fichier, et chaque répertoire a un *chemin d’accès*. \
 On sépare les noms des fichiers et des répertoires par des slash (« / »). \
-La base du système de fichiers est appelée la « racine », en anglais « root ».
+La base du système de fichiers est appelée la « *racine* », en anglais « *root* ».
 
 #warning()[
   == Ne pas confondre :
@@ -367,7 +369,9 @@ Cette arbre n'a qu'un seul et unique tronc (que l'on appelle étrangement "racin
 )
 
 Vous en conviendrez, cette représentation n'est pas très pratique.\ 
-On en préfère donc une qui ressemble un peu moins à un arbre, mais beaucoup plus lisible :
+On en préfère donc une qui ressemble un peu moins à un arbre, mais beaucoup plus lisible :\
+_(voir page suivante)_
+
 #align(
   center,
   image("./illustrations/arborescence2.png", width: 8cm)
@@ -387,6 +391,80 @@ Textuellement, cela donne :
     └── lib
 ```
 
+#info()[
+  Windows - que vous connaissez probablement mieux - fonctionne également avec un système de fichiers arborescent.\
+
+  La principale différence est que dans Windows, il peut y avoir plusieurs racines ("Disque C:", "Disque D:", etc...).
+]
+
+#pagebreak()
+
+=== Chemins d'accès
+
+Chaque fichier, chaque répertoire possède :
+- Un seul et unique *chemin absolu*. \
+  Le chemin absolu est le chemin le plus court qui part de la racine (il commence donc toujours par un slash "`/`").
+- Une infinité de de *chemins relatifs*. \
+  Les chemins relatifs sont des chemins... depuis un répertoire spécifique.
+
+#info()[
+  - On utilise le point "`.`" pour désigner le répertoire courant (celui dans lequel on se situe).
+  - On utilise deux points "`..`" pour désigner le répertoire parent (celui qui contient celui dans lequel on se situe).\
+    La racine `/` est le seul répertoire qui n'a pas de répertoire parent. Pour la racine, `..` est égal à lui même.
+  - On utilise `~` pour désigner le répertoire personnel de l'utilisateur courant.
+]
+
+Reprenon l'arborescence étudiée précédemment :
+```
+/
+├── home
+│   ├── alice
+│   │   ├── documents
+│   │   │   └── document1
+│   │   └── fichier1
+│   └── bob
+│       └── fichier_a
+└── var
+    └── lib
+```
+
+- Le chemin absolu de "fichier_a" est :  `/home/bob/fichier_a`.
+- Si on se trouve dans le répertoire personnel d'alice (dont le chemin absolu est `/home/alice`), on peut faire référence au fichier "document1" via le chemin relatif `./documents/document1`, ou tout simplement `documents/document1`.
+- Si on se trouve dans le répertoire personnel d'alice, on peut faire référence au fichier "fichier_a" via le chemin relatif `../bob/fichier_a`
+- Si on se trouve dans le répertoire personnel d'alice, on peut faire référence au répertoire "lib" via le chemin relatif `../../var/lib`. Mais dans ce cas, le plus simple serait sans doute d'utiliser le chemin absolu `/var/lib`.
+
+#pagebreak()
+
+=== Points de montages
+
+Dans Linux, on "attache" les supports de stockage à des répertoires de l'arborescence.
+
+On appelle cela des "montages" et les répertoires auquel on lie les supports sont appelés "points de montage".
+
+#align(
+  center,
+  image("./illustrations/points-montages.png", width: 14cm)
+)<illu-points-montages>
+
+
+=== Les principaux répertoires de l'arborescence
+
+- *bin (et sbin)* : Pour « binaires » et « super-binaires ». On y trouve les fichiers compilés exécutables (binaires) - ou plus simplement les programmes – nécessaires au fonctionnement primaire de l’ordinateur et à son démarrage. \
+  Dans sbin, on trouvera les binaires dédiés à l’administration, voués à être utilisés par le super-utilisateur root.
+#info()[
+  A l’origine, les supports de stockage étaient très limités.\
+  On devait par exemple démarrer son ordinateur sur une disquette puis échanger la disquette pour celle contenant nos programmes (traitement de texte par exemple) ou nos fichiers… C’est pourquoi on sépare ainsi les binaires nécessaires au démarrage des autres… \
+  Aujourd’hui, on ne manque plus de place mais on trouve cela bien plus propre et pratique de continuer à bien ranger les choses.
+]
+- *boot* : on y trouve les fichiers nécessaires au démarrage (boot) de la machine. Notamment le noyau du système (kernel).
+- *dev* : on y trouve les périphériques (devices) connectés à l’ordinateur.
+
+#info()[
+  Un des principes fondamentaux de Linux est que tout est fichier.\
+  Ainsi, les périphériques apparaissent comme des fichiers. C’est ainsi que les concepteurs de Linux ont décidé d’implémenter la fameuse notion de machine virtuelle (voir chapitre 2) avec laquelle il est plus simple pour nous d’interagir.\
+  Par exemple, le premier terminal branché à la machine sera représenté par /dev/tty0.\
+  De même, vous avez pu voir dans #link(<illu-points-montages>)[l'illustration sur les points de montages] que le premier disque dur de la machine était représenté par `/dev/sda`. `/dev/sda` est un fichier qui représente le disque dur. Il doit être *monté* pour pouvoir en explorer le contenu.
+]
 
 #pagebreak()
 
