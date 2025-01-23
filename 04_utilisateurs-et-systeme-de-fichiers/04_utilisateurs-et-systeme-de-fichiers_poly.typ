@@ -466,6 +466,122 @@ On appelle cela des "montages" et les répertoires auquel on lie les supports so
   De même, vous avez pu voir dans #link(<illu-points-montages>)[l'illustration sur les points de montages] que le premier disque dur de la machine était représenté par `/dev/sda`. `/dev/sda` est un fichier qui représente le disque dur. Il doit être *monté* pour pouvoir en explorer le contenu.
 ]
 
+- *etc* : pour « et caetera » : on y trouve ce qui n’a pas trouvé sa place ailleurs… \
+  Essentiellement les fichiers de configuration du système et des applications.
+- *home* : c’est ici que sont placés les répertoires personnels des utilisateurs.
+- *lib* : où sont placées les bibliothèques utilisées par les programmes de /bin et /sbin.
+
+#info()[
+  On appelle bibliothèque des « catalogues » de fonctions logicielles regroupées ensemble. \
+  Cela permet aux développeurs de pouvoir utiliser des fonctions toutes prêtes et ainsi gagner en temps, en propreté et efficacité du code mais aussi d’alléger les programmes.\
+  Par exemple, la fameuse bibliothèque « stdio » (Standard Inpout/Output » contient tout ce qu’il faut pour gérer les entrées et sorties d’un programme (lecture de saisies depuis le terminal, écriture dans un fichier…). Pas besoin de réécrire ce code pour les milliers d’applications présentes sur l’ordinateur. Surtout qu’on les ferait sans doute beaucoup moins bien !
+]
+
+- *media* : c’est ici que sont « montés » les périphériques externes (clés USB…).
+- *mnt* : ce répertoire est dédié au montage des disques.
+- *opt* : on y place généralement les programmes optionnels (c’est-à-dire non nécessaires à l’utilisation régulière de la machine… les jeux par exemple).
+- *proc* : qui est également une représentation de la machine virtuelle. On y trouve l’état de tous les composants du système. C’est un répertoire virtuel qui ne prend aucune place sur le disque. Par exemple, le fichier /proc/cpuinfo contient les informations détaillées du CPU à l’instant t.
+- *root* : Le répertoire personnel du super-utilisateur « root ».
+- *run* : encore un répertoire représentant la machine virtuelle. Celui-ci contient des informations sur les programmes (processus) en cours de fonctionnement (« running »)
+- *sys* : similaire à proc (donc encore un répertoire représentant la machine virtuelle !) 
+- *tmp* : festiné à stocker des fichiers temporaires. Il est régulièrement vidé par le système (à minima à chaque redémarrage).
+- *usr* : pour Unix System Resources. Contient les ressources du système non nécessaires à son démarrage. \
+  Comme à la racine, on y retrouve des répertoires `bin`, `sbin`, `lib…`
+  La version "usr" de `bin`, `sbin` etc... contient les éléments *non* nécessaires au démarrage du système.
+  `usr` contient également un répertoire « local » qui contient lui-même… `bin`, `sbin`, `lib`. Ils contiennent les élements spécifiques à cette machine. \
+  Un répertoire `/usr/share` contient des ressources globales comme les fichiers de langue, la documentation… \
+  #image("./illustrations/usr.png", width: 16.5cm)
+- *var* : c’est ici que sont stockées les données.
+
+=== Les permissions
+
+Chaque fichier, chaque répertoire possède :
+- Un utilisateur propriétaire
+- Un groupe propriétaire
+- Un « mode » sous la forme de trois digits sur 4 bits :
+  - Le premier définit les droits de propriétaire
+  - Le second définit les droits des membres du groupe propriétaire
+  - Le troisième définit les droits de tous les autres utilisateurs
+
+#warning()[
+  Il est important de noter que le super-utilisateur aura toujours *tous* les droits sur n'importe quel répertoire ou fichier, quelques soient leurs permissions.
+]
+
+#{
+  set table(
+    stroke: none,
+    gutter: 0.2em,
+    fill: (x, y) =>
+      if y == 0 { colors.at("blue").border }
+      else if y == 2 { colors.at("blue").border.lighten(70%) }
+      else { colors.at("blue").border.lighten(90%) },
+
+  )
+
+  show table.cell: it => {
+    if it.y == 0 {
+      set text(white)
+      strong(it)
+    } else {
+      it
+    }
+  }
+
+  table(
+    columns: 5,
+    [Droit], [Raccourci], [Octal], [Pour un fichier], [Pour un répertoire],
+    [Lecture], [r (read)], [4], [Droit de lire le fichier.], [Droit de voir le contenu du répertoire (les fichiers et répertoires qu’il contient).],
+    [Ecriture], [w (write)], [2], [Droit de modifier le fichier.], [Droit de modifier le contenu du répertoire (ajouter ou supprimer des fichiers et des répertoires à l’intérieur).],
+    [Exécution], [x (execute)], [1], [Droit d’exécuter le fichier (programme).], [Droit de traverser le répertoire.],
+  )
+}
+Pour chaque fichier et/ou répertoire, on définit pour le propriétaire, le groupe propriétaire et les autres une combinaison de ces trois droits.
+
+Par exemple, on peut dire que le propriétaire a le droit d'exécuter, lire, et écrire (xrw ou 1+2+4=7), le groupe propriétaire a le droit d'exécuter et lire (xr- ou 1+2=3) et les autres n'ont que le droit de lire (-r- ou 2).
+
+
+
+
+
+== Commandes utiles
+
+=== `pwd` (où suis-je ?)
+
+`pwd` ("print working directory") est une autre des commandes les plus simples sur Linux...
+
+Tapez `pwd` dans votre shell, et la commande vous donnera... le chemin absolu du répertoire dans lequel vous vous trouvez.
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ pwd
+/home/prof
+```
+
+
+=== `cd` (pour se déplacer)
+
+`cd` ("change directory") permet de changer le répertoire de travail, le répertoire dans lequel vous êtes. \
+Dit autrement, `cd` vous permet de vous déplacer dans l'arborescence de fichiers.
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ cd /var/log
+prof@ece-sys-vm:/var/log$ pwd
+/var/log
+prof@ece-sys-vm:/var/log$ cd ../lib
+prof@ece-sys-vm:/var/lib$ pwd
+/var/lib
+prof@ece-sys-vm:/var/lib$ cd grub
+prof@ece-sys-vm:/var/lib/grub$ pwd
+/var/lib/grub
+```
+
+
+
+
+
 #pagebreak()
 
 
