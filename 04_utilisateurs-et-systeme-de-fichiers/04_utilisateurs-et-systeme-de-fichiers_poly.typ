@@ -41,10 +41,10 @@ Les utilisateurs (humains ou systèmes) sont représentés par des *comptes util
 
 La plupart du temps, on créé un compte utilisateur pour chaque personne qui va utiliser le système. Il peut même arriver que l'on créée plusieurs comptes pour une même personne (par exemple un compte "normal" et un compte "administrateur" pour quand il doit effectuer des tâches sensibles). Les comptes sont protégés par mots de passes (on peut aussi employer d'autres moyens de sécurisation comme des cartes à puces, des clés physiques etc...).
 
-Les comptes utilisateurs servent notemment à mettre en oeuvre des politiques de permissions (qui a le droit de faire quoi et d'accéder à quoi sur le système) et à la traçabilité des opérations effectuées sur le système (on parle d'_audit logs_ : qui a fait quoi, et quand).
+Les comptes utilisateurs servent notamment à mettre en œuvre des politiques de permissions (qui a le droit de faire quoi et d'accéder à quoi sur le système) et à la traçabilité des opérations effectuées sur le système (on parle d'_audit logs_ : qui a fait quoi, et quand).
 
 #warning()[
-  Les comptes utilisateurs jouent donc un rôle très important dans la sécurisation des systèmes, et ont une valeur *juridique* : si une action illégale, malveillante et/ou une erreur professionnelle a été effectuée avec votre compte, vous en êtes responsable auprès du propriétaire du système (souvent votre employeur) et/ou aux yeux de la loi. Si vous n'êtes pas l'auteur de ces actions, on considerera que vous êtes à minima responsable de ne pas avoir suffisemment protégé votre mot de passe, ou de l'avoir volontairement donné à quelqu'un de malveillant, ce qui vaut complicité.
+  Les comptes utilisateurs jouent donc un rôle très important dans la sécurisation des systèmes, et ont une valeur *juridique* : si une action illégale, malveillante et/ou une erreur professionnelle a été effectuée avec votre compte, vous en êtes responsable auprès du propriétaire du système (souvent votre employeur) et/ou aux yeux de la loi. Si vous n'êtes pas l'auteur de ces actions, on considèrera que vous êtes à minima responsable de ne pas avoir suffisamment protégé votre mot de passe, ou de l'avoir volontairement donné à quelqu'un de malveillant, ce qui vaut complicité.
 
   Votre compte utilisateur et votre mot de passe sont donc *précieux* et représentent votre *identité* sur le système.
 ]
@@ -53,7 +53,7 @@ Les comptes utilisateurs servent notemment à mettre en oeuvre des politiques de
 Il existe des comptes utilisateurs qui ne représentent pas des humains mais des programmes, ou même des abstractions du système d'exploitation, on les appelle les *comptes systèmes*.
 
 Linux propose également une notion de *groupes utilisateurs*.\
-Les groupes utilisateurs permettent de représenter un ensemble d'utilisateurs et sont principalement utilisés dans la mise en oeuvre des politiques de permissions (qui a le droit de faire quoi et d'accéder à quoi sur le système).\
+Les groupes utilisateurs permettent de représenter un ensemble d'utilisateurs et sont principalement utilisés dans la mise en œuvre  des politiques de permissions (qui a le droit de faire quoi et d'accéder à quoi sur le système).\
 Il appartient à l'administrateur du système de décider comment il souhaite regrouper les utilisateurs. Par exemple, on peut décider de créer des groupes par services dans l'entreprise (un groupe "commerce", un groupe "personnel technique", un groupe "direction", ...) ou pour l'utilisation de certaines ressources (un groupe "traceur" pour ceux qui ont besoin d'utiliser des traceurs et un groupe "imprimante-3d" pour ceux qui ont besoin d'utiliser des imprimantes 3D)... ou même "géographiquement" (groupe "bâtiment A", groupe "1er étage"...).
 
 
@@ -109,7 +109,7 @@ Sous linux, il existe un utilisateur très particulier : l'utilisateur *root* (s
   Je ne peux pas insister assez sur le fait que *root* a *littéralement TOUS les droits*.\
   Il peut :
   - détruire le système entier d'une seule commande
-  - accéder à *tous* les fichiers du systèmes, quelque soient leurs permissions
+  - accéder à *tous* les fichiers du système, quelque soient leurs permissions
   - supprimer un utilisateur et tous ses fichiers
   - ...
 ]
@@ -132,7 +132,7 @@ Sous linux, il existe un utilisateur très particulier : l'utilisateur *root* (s
 
 Tapez `whoami` (en anglais : "quisuisje") dans votre shell, et la commande vous donnera... votre nom d'utilisateur.
 
-Dans un shell moderne avec un prompt "classique" cela n'a pas un grand intéret (le prompt vous rappelle votre nom d'utilisateur à chaque fois), mais cela peut être utile quand :
+Dans un shell moderne avec un prompt "classique" cela n'a pas un grand intérêt (le prompt vous rappelle votre nom d'utilisateur à chaque fois), mais cela peut être utile quand :
 - vous écrierez des scripts
 - vous utiliserez des systèmes où vous êtes contraints d'utiliser des shells plus "rustiques"
 
@@ -144,10 +144,9 @@ prof
 ```
 
 
-
 === `id` (identifiants)
 
-`id` permet d'obtenir l'UID, le GID ainsi que les IDs de tous les groupes auquels un utilisateur appartient.
+`id` permet d'obtenir l'UID, le GID ainsi que les IDs de tous les groupes auxquels un utilisateur appartient.
 
 ==== Manuel
 
@@ -182,7 +181,7 @@ DESCRIPTION
 id accepte quelques options, notamment pour sélectionner quelles informations on souhaite obtenir.
 
 On peut préciser un (ou des) nom(s) d'utilisateur(s) pour le(s)quel(s) on veut obtenir les informations.\ 
-Si on n'en précise pas, ce sera pour l'utilisateur qui éxécute la commande.
+Si on n'en précise pas, ce sera pour l'utilisateur qui exécute la commande.
 
 ==== Exemple d'utilisation
 
@@ -359,7 +358,7 @@ La base du système de fichiers est appelée la « *racine* », en anglais «�
 
 
 Le système de fichiers de Linux forme ce que l'on appelle une "arborescence" : elle peut être représentée sous la forme d'un arbre. \
-Cette arbre n'a qu'un seul et unique tronc (que l'on appelle étrangement "racine" ou, en anglais `root`). De ce tronc partent des branches (les répertoires). Chaque branche peut supporter :
+Cet arbre n'a qu'un seul et unique tronc (que l'on appelle étrangement "racine" ou, en anglais `root`). De ce tronc partent des branches (les répertoires). Chaque branche peut supporter :
 - d'autres branches
 - des feuilles (les fichiers)
 
@@ -414,7 +413,7 @@ Chaque fichier, chaque répertoire possède :
   - On utilise `~` pour désigner le répertoire personnel de l'utilisateur courant.
 ]
 
-Reprenon l'arborescence étudiée précédemment :
+Reprenons l'arborescence étudiée précédemment :
 ```
 /
 ├── home
@@ -540,7 +539,7 @@ Pour chaque fichier et/ou répertoire, on définit pour le propriétaire, le gro
 Par exemple, on peut dire que le propriétaire a le droit d'exécuter, lire, et écrire (xrw ou 1+2+4=7), le groupe propriétaire a le droit d'exécuter et lire (xr- ou 1+2=3) et les autres n'ont que le droit de lire (-r- ou 2).
 
 
-
+#pagebreak()
 
 
 == Commandes utiles
@@ -557,12 +556,27 @@ Tapez `pwd` dans votre shell, et la commande vous donnera... le chemin absolu du
 prof@ece-sys-vm:~$ pwd
 /home/prof
 ```
+ \
+ \
 
-
-=== `cd` (pour se déplacer)
+=== `cd` (se déplacer)
 
 `cd` ("change directory") permet de changer le répertoire de travail, le répertoire dans lequel vous êtes. \
 Dit autrement, `cd` vous permet de vous déplacer dans l'arborescence de fichiers.
+
+==== Manuel
+
+```console
+NOM
+       cd - changer le répertoire de travail du shell.
+
+SYNOPSIS
+       cd [DIR]
+
+Change le répertoire courant pour DIR.
+Par défaut, DIR est le répertoire personnel de l'utilisateur.
+Si DIR est "-", on retourne au répertoire précédent.
+```
 
 ==== Exemple d'utilisation
 
@@ -576,9 +590,520 @@ prof@ece-sys-vm:/var/lib$ pwd
 prof@ece-sys-vm:/var/lib$ cd grub
 prof@ece-sys-vm:/var/lib/grub$ pwd
 /var/lib/grub
+prof@ece-sys-vm:/var/lib/grub$ cd
+prof@ece-sys-vm:~$ pwd
+/home/prof
+```
+
+#pagebreak()
+
+=== `ls` (lister le contenu d'un répertoire)
+
+`ls` permet de lister le contenu d'un répertoire.
+
+==== Manuel
+
+```console
+NOM
+       ls - Afficher le contenu de répertoires
+
+SYNOPSIS
+       ls [OPTION]... [FICHIER]...
+
+DESCRIPTION
+       Afficher  les  informations  des FICHIERs (du répertoire courant par
+       défaut). Les entrées sont triées alphabétiquement si aucune des  op‐
+       tions -cftuvSUX ou --sort n'est indiquée.
+
+       Les paramètres obligatoires pour les options de forme longue le sont
+       aussi pour les options de forme courte.
+
+       -a, --all
+              inclure les entrées débutant par « . »
+       -A, --almost-all
+              omettre les fichiers « . » et « .. »
+       -c     avec  -lt, trier selon « ctime » (date de la dernière modifi‐
+              cation d'état du fichier) en l'affichant ; avec -l, trier se‐
+              lon le nom et afficher la date de modification ; sinon, trier
+              selon la date de modification, de la plus récente à  la  plus
+              ancienne
+       -h, --human-readable
+              avec  -l  ou  -s, afficher les tailles en format lisible (par
+              exemple 1K, 234M, 2G, etc.)
+       -l     utiliser un format d'affichage long
+       -n, --numeric-uid-gid
+              identique  à  -l mais en affichant les valeurs numériques des
+              identifiants du propriétaire (UID) et du groupe (GID)
+       -R, --recursive
+              afficher récursivement les sous-répertoires
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ ls
+workdir
+prof@ece-sys-vm:~$ ls workdir
+scriptreplay_ng
+prof@ece-sys-vm:~$ ls workdir/scriptreplay_ng/ -la
+total 32
+drwxrwxr-x 4 prof prof 4096 déc.  27 16:03 .
+drwxrwxr-x 3 prof prof 4096 janv. 25 21:57 ..
+drwxrwxr-x 2 prof prof 4096 déc.  27 16:03 example
+-rw-rw-r-- 1 prof prof  157 déc.  27 16:03 .gitignore
+-rw-r----- 1 prof adm  4285 déc.  27 16:03 README.md
+-rwxr-x--- 1 prof adm   305 déc.  27 16:03 record-script-session
+̀```
+
+Le répertoire  `workdir/scriptreplay_ng/` appartient à l'utilisateur `prof`. \ 
+Il a le droit de le traverser, d'en lire le contenu et d'écrire à l'intérieur. \ 
+Son groupe propriétaire est `prof`, les membres de ce groupe ont le droit de le traverser, d'en lire le contenu et d'écrire à l'intérieur. \ 
+Tous les autres utilisateurs de la machine ont le droit de le traverser et d'en lire le contenu.
+
+Le répertoire  `workdir/` a exactement les mêmes caractéristiques.
+
+Le fichier  `workdir/scriptreplay_ng/README.md` appartient à l'utilisateur `prof`. \ 
+Il a le droit de le lire et de le modifier. \ 
+Son groupe propriétaire est `adm`, les membres de ce groupe ont le droit de le lire. \
+Tous les autres utilisateurs de la machine n'ont aucun droit dessus.
+
+Le fichier  `workdir/scriptreplay_ng/record-script-session` appartient à l'utilisateur `prof`. \ 
+Il a le droit de l'exécuter, de le lire et de le modifier. \ 
+Son groupe propriétaire est `adm`, les membres de ce groupe ont le droit de l'exécuter et de le lire. \
+Tous les autres utilisateurs de la machine n'ont aucun droit dessus.
+
+
+#pagebreak()
+
+=== `mkdir` (créer des répertoires)
+
+`mkdir` ("make directory") permet de créer des répertoires.
+
+==== Manuel
+
+```console
+NOM
+       mkdir - Créer des répertoires
+
+SYNOPSIS
+       mkdir [OPTION]... RÉPERTOIRE...
+
+DESCRIPTION
+       Créer les RÉPERTOIREs s'ils n'existent pas.
+
+       Les  paramètres  obligatoires pour les options de forme longue le
+       sont aussi pour les options de forme courte.
+
+       -m, --mode=MODE
+              utiliser le mode du fichier (comme avec « chmod »), et non
+              au format umask (a=rw)
+       -p, --parents
+              pas d'erreur s'il existe, créer  des  répertoires  parents
+              comme  il  faut,  avec des noms de fichier non touchés par
+              l'option -m.
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ mkdir rep
+prof@ece-sys-vm:~$ mkdir -p rep/sous-rep/sous-sous-rep
+prof@ece-sys-vm:~$ ls -R rep/
+rep/:
+sous-rep
+
+rep/sous-rep:
+sous-sous-rep
+
+rep/sous-rep/sous-sous-rep:
+̀```
+
+#pagebreak()
+
+=== `rm` (supprimer des fichiers ou des répertoires)
+
+`rm` ("remove") permet de supprimer des fichiers ou des répertoires.
+
+==== Manuel
+
+```console
+NOM
+       rm - Effacer des fichiers et des répertoires
+
+SYNOPSIS
+       rm [OPTION]... [FICHIER]...
+
+DESCRIPTION
+       Le programme rm  efface  chaque fichier listé. Par défaut,
+       il n'efface pas les répertoires.
+
+OPTIONS
+       Supprimer le ou les FICHIERs.
+
+       -f, --force
+              ignorer les fichiers et paramètres inexistants, ne pas de‐
+              mander de confirmation
+       -i     demander une confirmation avant chaque effacement
+       -I     demander une fois avant d'effacer plus de trois  fichiers,
+              ou  pour  les  effacements récursifs. C'est moins intrusif
+              que -i, mais protège tout de même de la  plupart  des  er‐
+              reurs
+       -r, -R, --recursive
+              enlever le contenu des répertoires récursivement
+       -d, --dir
+              supprimer des répertoires vides
+
+       Par défaut, rm n'efface pas les  répertoires.  Utilisez  l'option
+       --recursive  (-r  ou  -R) pour effacer chaque répertoire passé en
+       paramètre en même temps que son contenu.
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ ls
+fichier  rep  workdir
+prof@ece-sys-vm:~$ rm fichier 
+prof@ece-sys-vm:~$ rm -r rep/
+prof@ece-sys-vm:~$ ls
+workdir
+̀```
+
+#pagebreak()
+
+=== `cp` (copier des fichiers ou des répertoires)
+
+`cp` ("copy") permet de copier des fichiers ou des répertoires.
+
+==== Manuel
+
+```console
+NOM
+       cp - Copier des fichiers et des répertoires
+
+SYNOPSIS
+       cp [OPTION]... [-T] SOURCE CIBLE
+       cp [OPTION]... SOURCE... RÉPERTOIRE
+
+DESCRIPTION
+       Copier  la SOURCE vers la CIBLE, ou plusieurs SOURCEs vers le RÉ‐
+       PERTOIRE.
+
+       Les paramètres obligatoires pour les options de forme  longue  le
+       sont aussi pour les options de forme courte.
+
+       -a, --archive
+              identique à -dR --preserve=all
+       -f, --force
+              si  un  fichier  cible  existant  ne peut pas être ouvert,
+              alors le détruire et essayer à nouveau (cette  option  est
+              ignorée si -n est aussi utilisé)
+       -i, --interactive
+              demander  confirmation  avant d'écraser (annule une précé‐
+              dente option -n)
+       -p     identique à --preserve=mode,ownership,timestamps
+       --preserve[=LISTE_ATTR]
+              préserver les attributs indiqués
+       --no-preserve=LISTE_ATTR
+              ne pas préserver les attributs indiqués
+       -R, -r, --recursive
+              copier récursivement les répertoires
+       -T, --no-target-directory
+              traiter la CIBLE comme un fichier normal
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ ls
+fichier1  workdir
+prof@ece-sys-vm:~$ ls workdir/
+
+prof@ece-sys-vm:~$ cp fichier1 fichier2
+prof@ece-sys-vm:~$ ls
+fichier1  fichier2  workdir
+prof@ece-sys-vm:~$ cp fichier1 fichier2 workdir/
+prof@ece-sys-vm:~$ ls workdir/
+fichier1  fichier2  scriptreplay_ng
+̀```
+
+
+#pagebreak()
+
+=== `mv` (déplacer des fichiers ou des répertoires)
+
+`mv` ("move") permet de déplacer des fichiers ou des répertoires. \
+On peut aussi l'utiliser pour renommer un fichier ou un répertoire.
+
+==== Manuel
+
+```console
+NOM
+       mv - Déplacer ou renommer des fichiers
+
+SYNOPSIS
+       mv [OPTION]... [-T] SOURCE CIBLE
+       mv [OPTION]... SOURCE... RÉPERTOIRE
+
+DESCRIPTION
+       Renommer  la SOURCE en CIBLE ou déplacer la SOURCE vers le RÉPER‐
+       TOIRE.
+
+       Les paramètres obligatoires pour les options de forme  longue  le
+       sont aussi pour les options de forme courte.
+
+       -f, --force
+              ne pas demander de confirmation avant d'écraser
+       -T, --no-target-directory
+              traiter la CIBLE comme un fichier normal
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ ls
+fichier1  fichier2  workdir
+prof@ece-sys-vm:~$ mkdir newdir
+prof@ece-sys-vm:~$ mv fichier2 fichier-2
+prof@ece-sys-vm:~$ ls
+fichier1  fichier-2  newdir  workdir
+prof@ece-sys-vm:~$ mv fichier1 fichier-2 newdir/
+prof@ece-sys-vm:~$ ls
+newdir  workdir
+prof@ece-sys-vm:~$ ls newdir/
+fichier1  fichier-2
+̀```
+
+
+#pagebreak()
+
+=== `cat` (afficher le contenu d'un fichier)
+
+`cat` permet de concaténer le contenu de fichier(s) dans la sortie de la console.
+
+==== Manuel
+
+```console
+NOM
+       cat - Concaténer des fichiers et les afficher sur la sortie stan‐
+       dard
+
+SYNOPSIS
+       cat [OPTION] ... [FICHIER] ...
+
+DESCRIPTION
+       Concaténer le ou les FICHIER(s) sur la sortie standard.
+
+       L'entrée standard est lue quand FICHIER est omis ou quand FICHIER
+       vaut « - ».
+
+       -b, --number-nonblank
+              numéroter les lignes non vides, annule -n
+       -n, --number
+              numéroter toutes les lignes
+       -s, --squeeze-blank
+              supprimer les lignes vides répétées
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ cat fichier1
+Ceci est le contenu du fichier 1.
+prof@ece-sys-vm:~$ cat fichier1 fichier2
+Ceci est le contenu du fichier 1.
+Ceci est le contenu du fichier 2
+̀```
+
+
+
+#pagebreak()
+
+=== `touch` (mettre à jour un fichier)
+
+`touch` permet de mettre à jour la date de dernière modification et de dernier accès à un fichier, *en le créant s'il n'existe pas*.
+
+==== Manuel
+
+```console
+NAME
+       touch - change file timestamps
+
+SYNOPSIS
+       touch [OPTION]... FILE...
+
+DESCRIPTION
+       Update the access and modification times of each FILE to the cur‐
+       rent time.
+
+       A  FILE  argument that does not exist is created empty, unless -c
+       or -h is supplied.
+
+       Mandatory arguments to long options are mandatory for  short  op‐
+       tions too.
+
+       -a     change only the access time
+       -c, --no-create
+              do not create any files
+       -m     change only the modification time
+       -r, --reference=FILE
+              use this file's times instead of current time
+̀```
+
+==== Exemple d'utilisation
+
+```console
+prof@ece-sys-vm:~$ ls -l
+total 16
+-rw-rw-r-- 1 prof prof   34 janv. 25 22:36 fichier1
+-rw-rw-r-- 1 prof prof   33 janv. 25 22:36 fichier2
+prof@ece-sys-vm:~$ touch fichier1
+prof@ece-sys-vm:~$ ls -l
+total 16
+-rw-rw-r-- 1 prof prof   34 janv. 25 22:41 fichier1
+-rw-rw-r-- 1 prof prof   33 janv. 25 22:36 fichier2
+prof@ece-sys-vm:~$ touch fichier3
+prof@ece-sys-vm:~$ ls -l
+total 16
+-rw-rw-r-- 1 prof prof   34 janv. 25 22:41 fichier1
+-rw-rw-r-- 1 prof prof   33 janv. 25 22:36 fichier2
+-rw-rw-r-- 1 prof prof    0 janv. 25 22:42 fichier3
+̀```
+
+
+#pagebreak()
+
+
+=== `nano` (éditer un fichier)
+
+`nano` est l'équivalent du bloc-notes.
+
+Il est beaucoup plus simple à utiliser (mais beaucoup moins puissant) que `vim` ou `emacs`.
+
+==== Manuel
+
+```console
+NOM
+       nano - NAno un NOuvel éditeur, inspiré de Pico
+
+SYNOPSIS
+       nano [options] [[+ligne[,colonne]] fichier]...
+
+DESCRIPTION
+       nano  est  un  éditeur  léger  et facile. Il imite l'aspect et la
+       convivialité de Pico, mais c'est un logiciel libre qui implémente
+       plusieurs fonctionnalités qui manquent à Pico telles que l'ouver‐
+       ture de plusieurs fichiers, le défilement  ligne  par  ligne,  la
+       fonction annuler et refaire, la coloration syntaxique, la numéro‐
+       tation des lignes et le pliage des lignes trop longues.
+
+ÉDITION
+       Entrer du texte et se déplacer dans un fichier est simple : taper
+       les  lettres  et  utiliser les touches normales de déplacement du
+       curseur. Les commandes sont  entrées  en  utilisant  les  touches
+       Contrôle  (^), Alt ou Méta (M-). Frapper ^K détruit la ligne cou‐
+       rante et la place dans le presse-papier. Les frappes consécutives
+       de ^K placeront toutes les lignes supprimées dans  le  presse-pa‐
+       pier. Tout mouvement du curseur ou exécution d'une autre commande
+       fera  que  la  frappe  ^K  suivante écrasera le presse-papier. La
+       frappe de ^U copiera le contenu du presse-papier à la  place  ac‐
+       tuelle du curseur.
+
+       Sur  certains  terminaux, le texte peut être aussi sélectionné en
+       maintenant la touche Shift appuyée et en utilisant les flèches de
+       direction. Maintenir appuyées également les touches Ctrl  ou  Alt
+       augmentera le pas de la sélection. Tout mouvement du curseur sans
+       l'appui sur la touche Shift annulera la sélection.
+
+       Les deux lignes en bas de l'écran montrent quelques commandes im‐
+       portantes :  le message d'aide de nano (^G) liste toutes les com‐
+       mandes disponibles. Les raccourcis  clavier  par  défaut  peuvent
+       être modifiés avec le fichier nanorc
+̀```
+
+
+=== `grep` (rechercher dans un fichier)
+
+`grep` permet de rechercher un motif dans un fichier, ou dans la sortie d'une commande.
+
+=== `more` (lire un fichier en mode paginé)
+
+`more` permet de lire un fichier en mode paginé. C'est à dire qu'on affiche le fichier (en commençant par son début) par blocs tenant à l'écran. On peut ensuite faire défiler le contenu.
+
+
+=== `head` (lire le début d'un fichier)
+
+`head` permet de lire le début d'un fichier.
+
+==== Manuel
+
+```console
+NOM
+       head - Afficher le début des fichiers
+
+SYNOPSIS
+       head [OPTION]... [FICHIER]...
+
+DESCRIPTION
+       Afficher  les 10 premières lignes de chaque FICHIER sur la sortie
+       standard. Avec plus d'un  FICHIER,  faire  précéder  chacun  d'un
+       en-tête donnant le nom du fichier.
+
+       L'entrée standard est lue quand FICHIER est omis ou quand FICHIER
+       vaut « - ».
+
+       Les  paramètres  obligatoires pour les options de forme longue le
+       sont aussi pour les options de forme courte.
+
+       -c, --bytes=[-]N
+              afficher les N premiers octets de chaque fichier ; avec le
+              préfixe « - », afficher tous les octets sauf  les  N  der‐
+              niers octets de chaque fichier
+       -n, --lines=[-]N
+              afficher les N premières lignes au lieu des 10 premières ;
+              avec le préfixe « - », afficher toutes les lignes sauf les
+              N dernières lignes de chaque fichier
 ```
 
 
+
+=== `tail` (lire la fin d'un fichier)
+
+`tail` permet de lire la fin d'un fichier.
+
+==== Manuel
+
+```console
+NOM
+       tail - Afficher la dernière partie de fichiers
+
+SYNOPSIS
+       tail [OPTION] ... [FICHIER] ...
+
+DESCRIPTION
+       Afficher  les 10 dernières lignes de chaque FICHIER sur la sortie
+       standard. Lorsqu'il y a plus d'un FICHIER, faire précéder  chaque
+       groupe de lignes d'un en-tête donnant le nom du fichier.
+
+       L'entrée standard est lue quand FICHIER est omis ou quand FICHIER
+       vaut « - ».
+
+       Les  paramètres  obligatoires pour les options de forme longue le
+       sont aussi pour les options de forme courte.
+
+       -c, --bytes=[+]N
+              Afficher les N derniers octets ; vous pouvez aussi  utili‐
+              ser  -c +N  pour  afficher  les octets de chaque fichier à
+              partir du Nième octet
+       -f, --follow[={name|descriptor}]
+              Afficher les données ajoutées lorsque le fichier grossit ;
+
+              l’absence d’argument d'option équivaut à  utiliser  « des‐
+              criptor »
+       -n, --lines=[+]N
+              output  the last NUM lines, instead of the last 10; or use
+              -n +NUM to skip NUM-1 lines at the start
+```
 
 
 

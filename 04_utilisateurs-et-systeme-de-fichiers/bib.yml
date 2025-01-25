@@ -20,3 +20,16 @@ linux-principes-de-base:
     date: 2022-11
     serial-number:
       isbn:  978-2-409-03776-4
+
+top-50-linux-commands-you-must-know:
+    type: Web
+    title: Top 50+ Linux Commands You MUST Know
+    author: Anish Singh Walia
+    editor: digitalocean
+    url: https://www.digitalocean.com/community/tutorials/linux-commands
+    parent:
+        type: Web
+        title: digitalocean
+        url: https://www.digitalocean.com
+
+
